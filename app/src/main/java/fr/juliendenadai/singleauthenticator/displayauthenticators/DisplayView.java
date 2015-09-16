@@ -8,6 +8,8 @@ import fr.juliendenadai.singleauthenticator.common.views.MvpView;
  */
 public interface DisplayView extends MvpView {
 
+    void addAuthenticator(Authenticator authenticator);
+
     interface Listener {
         void onAuthenticatorAdded(Authenticator authenticator);
     }

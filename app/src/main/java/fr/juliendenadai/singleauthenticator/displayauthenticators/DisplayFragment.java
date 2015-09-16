@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -14,7 +15,8 @@ import android.view.View;
 
 import butterknife.InjectView;
 import fr.juliendenadai.singleauthenticator.R;
-import fr.juliendenadai.singleauthenticator.managers.Constants;
+import fr.juliendenadai.singleauthenticator.models.Authenticator;
+import fr.juliendenadai.singleauthenticator.utils.Constants;
 import fr.juliendenadai.singleauthenticator.common.views.BaseFragment;
 
 /**
@@ -31,6 +33,8 @@ public class DisplayFragment extends BaseFragment<DisplayPresenter>
 
     @InjectView(R.id.fab)
     FloatingActionButton mFab;
+
+    private DisplayAdapter mAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -102,6 +106,13 @@ public class DisplayFragment extends BaseFragment<DisplayPresenter>
     }
 
     private void initializeRecyclerView() {
+        mRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        mAdapter = new DisplayAdapter(getContext());
+        mRecycler.setAdapter(mAdapter);
+    }
 
+    @Override
+    public void addAuthenticator(Authenticator authenticator) {
+        mAdapter.addAuthenticator(authenticator);
     }
 }
