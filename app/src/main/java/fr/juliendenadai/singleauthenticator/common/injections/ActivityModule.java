@@ -8,7 +8,6 @@ import fr.juliendenadai.singleauthenticator.common.views.BaseActivity;
  * A module to wrap the Activity state and expose it to the graph.
  * Created by Julien De Nadai<julien.denadai@gmail.com> on 12/09/15.
  */
-@PerActivity
 @Module
 public class ActivityModule {
 

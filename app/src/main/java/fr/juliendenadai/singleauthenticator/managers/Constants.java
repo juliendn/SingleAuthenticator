@@ -1,4 +1,4 @@
-package fr.juliendenadai.singleauthenticator;
+package fr.juliendenadai.singleauthenticator.managers;
 
 /**
  * Created by Julien De Nadai<julien.denadai@gmail.com> on 12/09/15.

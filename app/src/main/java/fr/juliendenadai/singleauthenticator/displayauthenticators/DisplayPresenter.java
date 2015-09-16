@@ -7,14 +7,16 @@ import android.widget.Toast;
 
 import javax.inject.Inject;
 
-import fr.juliendenadai.singleauthenticator.Navigator;
-import fr.juliendenadai.singleauthenticator.Constants;
-import fr.juliendenadai.singleauthenticator.Authenticator;
+import fr.juliendenadai.singleauthenticator.navigations.Navigator;
+import fr.juliendenadai.singleauthenticator.managers.Constants;
+import fr.juliendenadai.singleauthenticator.models.Authenticator;
+import fr.juliendenadai.singleauthenticator.common.injections.PerActivity;
 import fr.juliendenadai.singleauthenticator.common.presenters.BasePresenter;
 
 /**
  * Created by Julien De Nadai<julien.denadai@gmail.com> on 12/09/15.
  */
+@PerActivity
 public class DisplayPresenter extends BasePresenter<DisplayView>
         implements DisplayView.Listener {
 

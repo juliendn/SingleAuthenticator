@@ -3,7 +3,7 @@ package fr.juliendenadai.singleauthenticator.common.presenters;
 import android.content.Context;
 import android.support.annotation.CallSuper;
 
-import fr.juliendenadai.singleauthenticator.Navigator;
+import fr.juliendenadai.singleauthenticator.navigations.Navigator;
 import fr.juliendenadai.singleauthenticator.common.views.MvpView;
 
 

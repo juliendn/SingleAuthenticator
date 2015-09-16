@@ -1,50 +1,48 @@
-package fr.juliendenadai.singleauthenticator;
+package fr.juliendenadai.singleauthenticator.navigations;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
-import fr.juliendenadai.singleauthenticator.addselector.AddSelectorActivity;
+import fr.juliendenadai.singleauthenticator.addauthenticator.AddActivity;
 import fr.juliendenadai.singleauthenticator.common.BaseNavigator;
+import fr.juliendenadai.singleauthenticator.common.injections.PerActivity;
 import fr.juliendenadai.singleauthenticator.common.views.BaseActivity;
 
 /**
  * Class used to navigate through the application.
  * Created by Julien De Nadai<julien.denadai@gmail.com> on 04/07/15.
  */
-@Singleton
+@PerActivity
 public class Navigator extends BaseNavigator {
 
     private BaseActivity mContext;
 
     @Inject
-    public void Navigator(BaseActivity context) {
+    public Navigator(BaseActivity context) {
         mContext = context;
     }
 
     public void openAddActivity() {
-        goToActivity(AddSelectorActivity.class, null);
+        goToActivity(AddActivity.class, null);
     }
 
     @Override
-    public <A extends BaseActivity>
+    protected <A extends BaseActivity>
     void goToActivity(Class<A> activityClass, Bundle extras) {
-        if (AddSelectorActivity.class.equals(activityClass)) {
-            final Intent intent = new Intent(mContext, activityClass);
-            intent.putExtras(extras);
-            mContext.startActivityForResult(intent, Constants.ADD_REQUEST_CODE);
-        }
+        final Intent intent = new Intent(mContext, activityClass);
+        intent.putExtras(new Bundle(extras));
+        mContext.startActivity(intent);
     }
 
     @Override
-    public <A extends BaseActivity>
+    protected <A extends BaseActivity>
     void goToActivityForResult(Class<A> activityClass,
                                int requestCode,
                                Bundle extras) {
         final Intent intent = new Intent(mContext, activityClass);
-        intent.putExtras(extras);
+        intent.putExtras(new Bundle(extras));
         mContext.startActivityForResult(intent, requestCode);
     }
 

@@ -11,11 +11,11 @@ import fr.juliendenadai.singleauthenticator.common.views.BaseActivity;
  */
 public abstract class BaseNavigator {
 
-    public abstract <A extends BaseActivity>
+    protected abstract <A extends BaseActivity>
     void goToActivity(@NonNull Class<A> activityClass,
                       @Nullable Bundle extras);
 
-    public abstract <A extends BaseActivity>
+    protected abstract <A extends BaseActivity>
     void goToActivityForResult(@NonNull Class<A> activityClass,
                                int requestCode,
                                @Nullable Bundle extras);

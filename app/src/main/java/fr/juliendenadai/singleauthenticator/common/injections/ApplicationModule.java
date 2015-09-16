@@ -1,13 +1,21 @@
 package fr.juliendenadai.singleauthenticator.common.injections;
 
+import android.content.Context;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import fr.juliendenadai.singleauthenticator.Navigator;
-import fr.juliendenadai.singleauthenticator.AuthentManager;
+import fr.juliendenadai.singleauthenticator.datas.AuthenticatorCache;
+import fr.juliendenadai.singleauthenticator.datas.AuthenticatorDataRepository;
+import fr.juliendenadai.singleauthenticator.datas.AuthenticatorPrefCache;
+import fr.juliendenadai.singleauthenticator.datas.AuthenticatorRepository;
 import fr.juliendenadai.singleauthenticator.common.BaseApplication;
 import fr.juliendenadai.singleauthenticator.common.LeakManager;
+import fr.juliendenadai.singleauthenticator.common.executors.JobExecutor;
+import fr.juliendenadai.singleauthenticator.common.executors.PostExecutionThread;
+import fr.juliendenadai.singleauthenticator.common.executors.ThreadExecutor;
+import fr.juliendenadai.singleauthenticator.common.executors.UIThread;
 
 /**
  * Dagger module that provides objects which will live during the application lifecycle.
@@ -25,7 +33,7 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    BaseApplication provideApplication() {
+    Context provideContext() {
         return mApplication;
     }
 
@@ -37,13 +45,25 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    AuthentManager provideAuthentManager() {
-        return new AuthentManager(mApplication);
+    ThreadExecutor provideThreadExecutor(JobExecutor jobExecutor) {
+        return jobExecutor;
     }
 
     @Provides
     @Singleton
-    Navigator provideNavigator() {
-        return new Navigator();
+    PostExecutionThread providePostExecutionThread(UIThread uiThread) {
+        return uiThread;
+    }
+
+    @Provides
+    @Singleton
+    AuthenticatorCache provideUserCache(AuthenticatorPrefCache cache) {
+        return cache;
+    }
+
+    @Provides
+    @Singleton
+    AuthenticatorRepository provideAuthentRepository(AuthenticatorDataRepository repo) {
+        return repo;
     }
 }

@@ -14,7 +14,7 @@ import android.view.View;
 
 import butterknife.InjectView;
 import fr.juliendenadai.singleauthenticator.R;
-import fr.juliendenadai.singleauthenticator.Constants;
+import fr.juliendenadai.singleauthenticator.managers.Constants;
 import fr.juliendenadai.singleauthenticator.common.views.BaseFragment;
 
 /**

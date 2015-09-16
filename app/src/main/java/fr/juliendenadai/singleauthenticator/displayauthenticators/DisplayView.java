@@ -1,6 +1,6 @@
 package fr.juliendenadai.singleauthenticator.displayauthenticators;
 
-import fr.juliendenadai.singleauthenticator.Authenticator;
+import fr.juliendenadai.singleauthenticator.models.Authenticator;
 import fr.juliendenadai.singleauthenticator.common.views.MvpView;
 
 /**
