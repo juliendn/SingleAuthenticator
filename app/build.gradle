@@ -16,6 +16,15 @@ android {
     buildTypes {
         debug {
             applicationIdSuffix ".debug"
+            buildConfigField "boolean", "ENABLE_LOG", "true"
+            buildConfigField "int", "LOG_LEVEL", "2"
+            buildConfigField "boolean", "REPORT_CRASHES", "false"
+        }
+
+        release {
+            buildConfigField "boolean", "ENABLE_LOG", "false"
+            buildConfigField "int", "LOG_LEVEL", "5"
+            buildConfigField "boolean", "REPORT_CRASHES", "true"
         }
     }
 
