@@ -32,7 +32,9 @@ public class Navigator extends BaseNavigator {
     protected <A extends BaseActivity>
     void goToActivity(Class<A> activityClass, Bundle extras) {
         final Intent intent = new Intent(mContext, activityClass);
-        intent.putExtras(new Bundle(extras));
+        if (null != extras) {
+            intent.putExtras(extras);
+        }
         mContext.startActivity(intent);
     }
 
@@ -42,7 +44,9 @@ public class Navigator extends BaseNavigator {
                                int requestCode,
                                Bundle extras) {
         final Intent intent = new Intent(mContext, activityClass);
-        intent.putExtras(new Bundle(extras));
+        if (null != extras) {
+            intent.putExtras(extras);
+        }
         mContext.startActivityForResult(intent, requestCode);
     }
 
