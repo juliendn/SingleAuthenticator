@@ -9,12 +9,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
-import javax.inject.Inject;
-
 import butterknife.InjectView;
 import fr.juliendenadai.singleauthenticator.R;
-import fr.juliendenadai.singleauthenticator.managers.AuthentManager;
-import fr.juliendenadai.singleauthenticator.managers.Constants;
+import fr.juliendenadai.singleauthenticator.utils.Constants;
 import fr.juliendenadai.singleauthenticator.common.views.BaseFragment;
 import fr.juliendenadai.singleauthenticator.models.Algorithm;
 import fr.juliendenadai.singleauthenticator.models.Digits;
@@ -51,9 +48,6 @@ public abstract class AbstractOtpFragment extends BaseFragment<OtpPresenter> {
 
     @InjectView(R.id.interval)
     protected EditText mInterval;
-
-    @Inject
-    protected AuthentManager mAuthentManager;
 
     @Override
     protected void initializeDependencyInjector() {

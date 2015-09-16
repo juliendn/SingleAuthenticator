@@ -7,13 +7,10 @@ import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 
-import javax.inject.Inject;
-
 import fr.juliendenadai.singleauthenticator.R;
 import fr.juliendenadai.singleauthenticator.addauthenticator.otp.BattlenetFragment;
 import fr.juliendenadai.singleauthenticator.addauthenticator.otp.HotpFragment;
 import fr.juliendenadai.singleauthenticator.addauthenticator.otp.TotpFragment;
-import fr.juliendenadai.singleauthenticator.managers.AuthentManager;
 import fr.juliendenadai.singleauthenticator.common.views.BaseActivity;
 
 /**
@@ -34,9 +31,6 @@ public class AddActivity extends BaseActivity {
     private static final int PAGE_TOTP = 5;
 
     private static final int PAGE_COUNT = 6;
-
-    @Inject
-    AuthentManager mAuthentUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,12 +5,11 @@ import android.content.Context;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import fr.juliendenadai.singleauthenticator.managers.AuthentManager;
-import fr.juliendenadai.singleauthenticator.datas.AuthenticatorRepository;
 import fr.juliendenadai.singleauthenticator.common.BaseApplication;
 import fr.juliendenadai.singleauthenticator.common.LeakManager;
 import fr.juliendenadai.singleauthenticator.common.executors.PostExecutionThread;
 import fr.juliendenadai.singleauthenticator.common.executors.ThreadExecutor;
+import fr.juliendenadai.singleauthenticator.datas.AuthenticatorRepository;
 
 /**
  * A component whose lifetime is the life of the application.
@@ -25,8 +24,6 @@ public interface ApplicationComponent {
     Context context();
 
     LeakManager leakManager();
-
-    AuthentManager authentManager();
 
     ThreadExecutor threadExecutor();
 
