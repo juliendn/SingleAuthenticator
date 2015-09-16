@@ -16,8 +16,6 @@ import rx.subscriptions.Subscriptions;
  */
 public abstract class BaseInteractor<E extends Entity> implements Interactor<E> {
 
-    protected final Repository<E> mRepository;
-
     private final ThreadExecutor mThreadExecutor;
 
     private final PostExecutionThread mPostExecutionThread;
@@ -25,11 +23,9 @@ public abstract class BaseInteractor<E extends Entity> implements Interactor<E> 
     private Subscription mSubscription = Subscriptions.empty();
 
     protected BaseInteractor(ThreadExecutor threadExecutor,
-                             PostExecutionThread postExecutionThread,
-                             Repository<E> repository) {
+                             PostExecutionThread postExecutionThread) {
         mThreadExecutor = threadExecutor;
         mPostExecutionThread = postExecutionThread;
-        mRepository = repository;
     }
 
     /**
