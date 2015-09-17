@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    android:id="@+id/switcher"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    tools:showIn="@layout/displayauthenticators_itemlist">
+
+    <ImageView
+        android:id="@android:id/icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:clickable="false"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/ic_google"/>
+
+    <TextView
+        android:id="@android:id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@android:id/icon"
+        android:background="#33000000"
+        android:clickable="false"
+        android:contentDescription="@null"
+        android:gravity="center_horizontal"
+        android:src="@drawable/ic_action_new_account"
+        android:textSize="13pt"
+        android:textStyle="bold"
+        tools:text="Label"/>
+
+</merge>
