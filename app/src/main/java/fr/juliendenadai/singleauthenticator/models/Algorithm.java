@@ -48,6 +48,6 @@ public enum Algorithm implements Parcelable {
 
     @Override
     public String toString() {
-        return "Algo(" + mPosition + ")";
+        return "Algo(" + name() + ")";
     }
 }

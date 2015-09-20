@@ -40,4 +40,8 @@ public enum Digits implements Parcelable {
     public String toString() {
         return "Digit(" + mValue + ")";
     }
+
+    public int getValue() {
+        return mValue;
+    }
 }
